@@ -1,0 +1,67 @@
+<div class="detail">
+  <mat-card *ngIf="article">
+    <mat-card-title>
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <button mat-icon-button (click)="back()">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <h1>{{ article.title }}</h1>
+        </div>
+      </div>
+      <mat-card-subtitle
+        class="owner"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      >
+        <div>{{ article.author_name }}</div>
+        <div>{{ article.created_at | date : "longDate" }}</div>
+        <div>{{ article.topic_name }}</div>
+      </mat-card-subtitle>
+    </mat-card-title>
+    <mat-card-content>
+      <div
+        class="my2"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      ></div>
+      <div class="content">
+        {{ article.content }}
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <hr />
+  <h1>Commentaires</h1>
+  <div *ngFor="let comment of comments" fxLayout="row" class="comments">
+    {{ comment.author_name }}
+    <mat-card class="comment">{{ comment.content }}</mat-card>
+  </div>
+
+  <mat-card class="mt2">
+    <mat-card-content>
+      <form
+        [formGroup]="messageForm"
+        (ngSubmit)="sendMessage()"
+        fxLayout="column"
+      >
+        <textarea
+          matInput
+          placeholder="Ecrivez ici votre commentaire"
+          rows="6"
+          formControlName="message"
+        ></textarea>
+        <div fxLayout="row" fxLayoutAlign="end center" class="mt2">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="messageForm.invalid"
+          >
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

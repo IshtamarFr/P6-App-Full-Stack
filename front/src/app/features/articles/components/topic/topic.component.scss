@@ -1,0 +1,27 @@
+.list {
+  margin: 20px;
+
+  mat-card {
+    margin: 1rem;
+    padding: 5px;
+  }
+
+  mat-card-header {
+    display: block;
+    width: auto;
+  }
+
+  mat-card-title {
+    text-align: center;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+  }
+
+  .no-content {
+    text-align: center;
+    font-size: larger;
+  }
+}

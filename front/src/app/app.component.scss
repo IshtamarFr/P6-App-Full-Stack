@@ -1,0 +1,34 @@
+.app {
+  height: 100vh;
+  width: 100vw;
+
+  .link {
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  .link + .link {
+    margin-left: 10px;
+  }
+
+  img {
+    height: 80px;
+  }
+
+  mat-icon {
+    font-size: 1.6em;
+  }
+
+  mat-sidenav-container {
+    height: 100vh;
+  }
+
+  mat-sidenav {
+    height: 100vh;
+  }
+
+  mat-sidenav-content {
+    height: 100vh;
+  }
+}

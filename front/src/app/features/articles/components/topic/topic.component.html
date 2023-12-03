@@ -1,0 +1,28 @@
+<div class="list" fxLayout="row wrap" fxLayout.lt-md="column">
+  <mat-card *ngFor="let topic of topics$ | async" fxFlex="46" fxFlex.lt-md="98">
+    <mat-card-header>
+      <mat-card-title>{{ topic.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ topic.description }}
+      </p>
+    </mat-card-content>
+    <button
+      *ngIf="includes(topic); else register_button"
+      mat-raised-button
+      color="primary"
+      (click)="unsubscribeTopic(topic)"
+    >
+      Se désabonner
+    </button>
+    <ng-template #register_button>
+      <button mat-raised-button color="primary" (click)="subscribeTopic(topic)">
+        S'abonner
+      </button>
+    </ng-template>
+  </mat-card>
+  <div *ngIf="(topics$ | async)?.length == 0" class="no-content" fxFlex>
+    <p>Aucun thème n'est disponible</p>
+  </div>
+</div>

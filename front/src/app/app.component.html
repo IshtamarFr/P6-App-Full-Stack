@@ -1,0 +1,71 @@
+<div class="app">
+  <div *ngIf="$isLogged() | async; else logging" fxFlexFill>
+    <mat-toolbar>
+      <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+        <span><img src="../assets/logo_p6.png" alt="MDD" /></span>
+        <div fxShow="true" fxHide.lt-md>
+          <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+          <span routerLink="articles" class="link">Articles</span>
+          <span routerLink="topics" class="link">Thèmes</span>
+          <span routerLink="me" class="link"
+            ><mat-icon>account_circle</mat-icon></span
+          >
+        </div>
+        <button
+          mat-icon-button
+          (click)="sidenav.toggle()"
+          fxShow="true"
+          fxHide.gt-sm
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill>
+      <mat-sidenav #sidenav position="end">
+        <mat-nav-list
+          fxLayout="column"
+          fxLayoutAlign="space-between start"
+          fxFlexFill
+        >
+          <div fxLayout="column">
+            <a
+              routerLink="articles"
+              class="link"
+              mat-list-item
+              (click)="sidenav.toggle()"
+              style="text-align: left"
+              >Articles</a
+            >
+            <a
+              routerLink="topics"
+              class="link"
+              mat-list-item
+              (click)="sidenav.toggle()"
+              style="text-align: left"
+              >Thèmes</a
+            >
+          </div>
+          <a
+            routerLink="me"
+            class="link"
+            mat-list-item
+            (click)="sidenav.toggle()"
+            style="text-align: center"
+          >
+            <mat-icon>account_circle</mat-icon>
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content fxFlexFill
+        ><router-outlet></router-outlet
+      ></mat-sidenav-content>
+    </mat-sidenav-container>
+    <hr />
+  </div>
+
+  <ng-template #logging>
+    <router-outlet></router-outlet>
+  </ng-template>
+</div>

@@ -1,0 +1,52 @@
+h1 {
+  text-align: center;
+}
+
+.me {
+  margin-top: 30px;
+  mat-card {
+    margin: 20px;
+    max-width: 600px;
+    width: 100%;
+    padding: 5px;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+  }
+
+  .link {
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+.list {
+  .full-width {
+    width: 100%;
+  }
+
+  mat-card {
+    margin: 1rem;
+    padding: 5px;
+  }
+
+  mat-card-header {
+    display: block;
+    width: auto;
+  }
+
+  mat-card-title {
+    text-align: center;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+  }
+}
