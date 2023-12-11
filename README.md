@@ -1,25 +1,40 @@
-# P6-Full-Stack-reseau-dev
+# P6-Full-Stack-MDD
 
-## Front
+This is MVP for P6-MDD
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+## Prerequisites
+
+To use this app, you need:
+
+* Java 17
+* NodeJS 16
+* MySQL
+* Angular CLI
+
+Clone this repository on your computer.
+
+## Install Database
+
+Open your MySQL or your PHPMyAdmin as an admin.
+Create a new table (default: P6_OCR)
+Copy the content of /ressources/sql/script.sql
+
+Open /back/src/main/resources/application.yml and change: spring: datasource:
+* url (default: jdbc:mysql://127.0.0.1:3306/P6_OCR)
+* username (your SQL username)
+* password (your SQL password)
+
+(These can be set in /back/credential.yml)
+
+Don't forget to GRANT ALL PRIVILEGES to this user on this table
+
+## Install BackEnd
+
+Run `mvn install` (or `mvn package`) to install all dependencies.
+Run `mvn spring-boot:run` to run BackEnd (default: port 8080)
+
+## Install FrontEnd
 
 Don't forget to install your node_modules before starting (`npm install`).
-
-### Development server
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-### Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-### Where to start
-
-As you may have seen if you already started the app, a simple home page containing a logo, a title and a button is available. If you take a look at its code (in the `home.component.html`) you will see that an external UI library is already configured in the project.
-
-This library is `@angular/material`, it's one of the most famous in the angular ecosystem. As you can see on their docs (https://material.angular.io/), it contains a lot of highly customizable components that will help you design your interfaces quickly.
-
-Note: I recommend to use material however it's not mandatory, if you prefer you can get ride of it.
-
-Good luck!
+Run `ng build --base-href ./` to build the project. The build artifacts will be stored in the `dist/` directory, and can be served into your server folder (Apache, Nginx, etc.)
