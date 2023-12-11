@@ -9,7 +9,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
+/**
+ * This class takes care of Usernames, for security, roles, etc. It should not be changed without reasons.
+ * Most changes should occur to UserInfoService class.
+ */
 public class UserInfoDetails implements UserDetails {
 
     private final String name;
