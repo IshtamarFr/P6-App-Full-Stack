@@ -30,22 +30,24 @@
           fxFlexFill
         >
           <div fxLayout="column">
-            <a
-              routerLink="articles"
-              class="link"
-              mat-list-item
-              (click)="sidenav.toggle()"
-              style="text-align: left"
-              >Articles</a
-            >
-            <a
-              routerLink="topics"
-              class="link"
-              mat-list-item
-              (click)="sidenav.toggle()"
-              style="text-align: left"
-              >Thèmes</a
-            >
+            <div style="text-align: left">
+              <a
+                routerLink="articles"
+                class="link"
+                mat-list-item
+                (click)="sidenav.toggle()"
+                >Articles</a
+              >
+            </div>
+            <div style="text-align: left">
+              <a
+                routerLink="topics"
+                class="link"
+                mat-list-item
+                (click)="sidenav.toggle()"
+                >Thèmes</a
+              >
+            </div>
           </div>
           <a
             routerLink="me"
