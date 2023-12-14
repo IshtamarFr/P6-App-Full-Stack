@@ -1,4 +1,4 @@
-package fr.ishtamar.security.jwt.service;
+package fr.ishtamar.security.jwt.integration;
 
 import fr.ishtamar.security.jwt.entity.UserInfo;
 import fr.ishtamar.security.jwt.service.impl.UserInfoServiceImpl;

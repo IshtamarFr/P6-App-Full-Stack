@@ -9,7 +9,6 @@ import fr.ishtamar.security.jwt.repository.ArticleRepository;
 import fr.ishtamar.security.jwt.repository.TopicRepository;
 import fr.ishtamar.security.jwt.repository.UserInfoRepository;
 import fr.ishtamar.security.jwt.service.JwtService;
-import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,7 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ExtendWith(MockitoExtension.class)
-public class TopicControllerIT {
+public class TopicControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @MockBean

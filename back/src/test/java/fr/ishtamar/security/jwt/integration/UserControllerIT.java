@@ -1,4 +1,4 @@
-package fr.ishtamar.security.jwt.controller;
+package fr.ishtamar.security.jwt.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.ishtamar.security.jwt.dto.AuthRequest;
