@@ -84,7 +84,6 @@ public class ArticleController {
                 .content(content)
                 .author(userService.getUserByUsername(username))
                 .article(articleService.getArticleById(id))
-                .createdAt(new Date())
                 .build();
         commentService.saveComment(comment);
         Map<String,String> map=new HashMap<>();

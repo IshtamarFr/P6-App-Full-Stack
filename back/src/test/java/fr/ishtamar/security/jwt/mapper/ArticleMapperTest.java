@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -30,7 +31,14 @@ public class ArticleMapperTest {
                 .name("Interesting Subject")
                 .build();
 
-        Article article = new Article(1L,"mockTitle","mockContent",user,topic, new Date());
+        Article article = Article.builder()
+                .id(1L)
+                .title("mockTitle")
+                .content("mockContent")
+                .author(user)
+                .topic(topic)
+                .build();
+
         ArticleDto articleDto = articleMapper.toDto(article);
 
         assertThat(articleDto.getContent()).isEqualTo("mockContent");
