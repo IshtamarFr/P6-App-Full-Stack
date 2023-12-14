@@ -36,14 +36,6 @@ export class MeComponent implements OnInit {
     password: ['', [Validators.minLength(8), Validators.maxLength(60)]],
   });
 
-  checkPasswords: ValidatorFn = (
-    group: AbstractControl
-  ): ValidationErrors | null => {
-    let pass = group.get('password')?.value;
-    let confirmPass = group.get('password2')?.value;
-    return pass === confirmPass ? null : { notSame: true };
-  };
-
   constructor(
     private authService: AuthService,
     private router: Router,

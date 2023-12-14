@@ -101,7 +101,7 @@ public class UserController {
             @ApiResponse(responseCode="400", description = "Email is already used or password is not valid"),
             @ApiResponse(responseCode="403", description = "Access unauthorized")
     })
-    @PutMapping("/auth/me")
+    @PatchMapping("/auth/me")
     @Secured("ROLE_USER")
     public Map<String,String> userModifyProfile(
             //@formatter: off

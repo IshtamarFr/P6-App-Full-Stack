@@ -54,18 +54,6 @@ public class TopicController {
         return topicService.getTopicById(id);
     }
 
-    @Operation(summary = "Shows all articles for required topic",responses={
-            @ApiResponse(responseCode="200", description = "Shows all relevant articles"),
-            @ApiResponse(responseCode="400", description = "Topic Id doesn't exist"),
-            @ApiResponse(responseCode="403", description = "Access unauthorized")
-    })
-    @GetMapping("/{id}/articles")
-    @Secured("ROLE_USER")
-    public List<Article> getAllArticlesForTopic(@PathVariable("id") final long id) throws EntityNotFoundException {
-        topicService.getTopicById(id); //used to just throw error if id doesn't exist
-        return articleService.getAllArticlesWithTopicId(id);
-    }
-
     @Operation(summary = "Create new article for required topic",responses={
             @ApiResponse(responseCode="200", description = "Article successfully created"),
             @ApiResponse(responseCode="400", description = "Topic Id doesn't exist"),

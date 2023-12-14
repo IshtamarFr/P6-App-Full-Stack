@@ -113,19 +113,6 @@ public class TopicControllerIT {
 
     @Test
     @WithMockUser(roles="USER")
-    public void testGetAllArticlesByTopicId() throws Exception {
-        when(topicRepository.findById(10L)).thenReturn(Optional.of(mockTopic2));
-        when(articleRepository.findAllWithTopicId(10L)).thenReturn(List.of(mockArticle2));
-
-        this.mockMvc.perform(get("/topic/10/articles")).andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Hohoho")))
-                .andExpect(content().string(CoreMatchers.not(containsString("Lalala"))));
-        verify(articleRepository,times(1)).findAllWithTopicId(10L);
-    }
-
-    @Test
-    @WithMockUser(roles="USER")
     public void testCreateArticle() throws Exception {
         UserInfo mockUser=UserInfo.builder()
                 .name("Ishta")

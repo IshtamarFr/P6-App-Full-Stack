@@ -49,7 +49,7 @@ public class UserControllerTest {
         when(jwtService.extractUsername("123456789123456789")).thenReturn("test@test.com");
         when(userInfoRepository.findByEmail("test@test.com")).thenReturn(Optional.of(mockUser));
 
-        this.mockMvc.perform(MockMvcRequestBuilders.put("/auth/me")
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/auth/me")
                 .header("Authorization","Bearer 123456789123456789")
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(mockUserChange))
         ).andExpect(status().isOk());

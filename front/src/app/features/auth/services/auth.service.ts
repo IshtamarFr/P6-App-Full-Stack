@@ -24,7 +24,7 @@ export class AuthService {
 
   public update(registerRequest: RegisterRequest): Observable<AuthSuccess> {
     console.log(registerRequest);
-    return this.httpClient.put<AuthSuccess>(
+    return this.httpClient.patch<AuthSuccess>(
       `${this.pathService}/me`,
       registerRequest
     );

@@ -99,7 +99,7 @@ public class UserControllerIT {
                 .email("test@test.com")
                 .build();
 
-        this.mockMvc.perform(MockMvcRequestBuilders.put("/auth/me")
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/auth/me")
                         .header("Authorization","Bearer 123456789123456789")
                     .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(mockUserChange))
                 ).andExpect(status().isOk());
