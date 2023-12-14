@@ -30,5 +30,5 @@ public class ArticleDto {
     private Long topic_id;
     private String topic_name;
 
-    private Date created_at;
+    private Date createdAt;
 }

@@ -9,9 +9,9 @@ import java.util.List;
 
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
-    @Query(value = "SELECT * FROM Article WHERE topic_id = ?1 ORDER BY created_at DESC", nativeQuery = true)
+    @Query(value = "SELECT * FROM Article WHERE topic_id = ?1 ORDER BY createdAt DESC", nativeQuery = true)
     List<Article> findAllWithTopicId(Long topic_id);
 
-    @Query(value = "SELECT * FROM Article WHERE topic_id IN ?1 ORDER BY created_at DESC", nativeQuery = true)
+    @Query(value = "SELECT * FROM Article WHERE topic_id IN ?1 ORDER BY createdAt DESC", nativeQuery = true)
     List<Article> findAllInTopicIds(List<Long> topic_ids);
 }

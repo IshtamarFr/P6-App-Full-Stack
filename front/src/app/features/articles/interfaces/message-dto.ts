@@ -3,5 +3,5 @@ export interface MessageDto {
   author_id: number;
   author_name: string;
   article_id: number;
-  created_at: Date;
+  createdAt: Date;
 }

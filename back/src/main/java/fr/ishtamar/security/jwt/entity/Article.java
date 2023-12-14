@@ -38,5 +38,5 @@ public class Article {
     private Topic topic;
 
     @CreatedDate
-    private Date created_at=new Date();
+    private Date createdAt=new Date();
 }

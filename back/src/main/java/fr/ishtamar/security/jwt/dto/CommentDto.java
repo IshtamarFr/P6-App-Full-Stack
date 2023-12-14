@@ -27,5 +27,5 @@ public class CommentDto {
     @NotNull
     private Long article_id;
 
-    private Date created_at=new Date();
+    private Date createdAt=new Date();
 }

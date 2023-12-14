@@ -46,7 +46,7 @@ public class ArticleMapperIT {
                 .content("mockContentDto")
                 .author_id(106L)
                 .topic_id(1L)
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
 
         when(userInfoService.getUserById(106L)).thenReturn(user);

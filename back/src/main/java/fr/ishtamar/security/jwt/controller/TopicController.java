@@ -86,7 +86,7 @@ public class TopicController {
                 .title(articleDto.getTitle())
                 .author(userService.getUserByUsername(username))
                 .topic(topicService.getTopicById(id))
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         articleService.saveArticle(article);
         Map<String,String> map=new HashMap<>();

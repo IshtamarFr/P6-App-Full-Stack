@@ -34,5 +34,5 @@ public class Comment {
     private Article article;
 
     @CreatedDate
-    private Date created_at=new Date();
+    private Date createdAt=new Date();
 }

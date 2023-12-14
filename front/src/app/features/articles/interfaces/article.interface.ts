@@ -6,5 +6,5 @@ export interface Article {
   author_name: string;
   topic_id: number;
   topic_name: string;
-  created_at: Date;
+  createdAt: Date;
 }
