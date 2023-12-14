@@ -104,10 +104,8 @@ public class UserController {
     @PatchMapping("/auth/me")
     @Secured("ROLE_USER")
     public Map<String,String> userModifyProfile(
-            //@formatter: off
             @RequestHeader(value="Authorization",required=false) String jwt,
             @RequestBody ModifyUserRequest request
-            //@formatter: on
     ) throws EntityNotFoundException, EmailAlreadyUsedException, InvalidPasswordException {
         //get data from user
         String username=jwtService.extractUsername(jwt.substring(7));
