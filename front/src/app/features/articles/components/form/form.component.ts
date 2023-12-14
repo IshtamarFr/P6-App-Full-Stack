@@ -17,8 +17,14 @@ export class FormComponent implements OnInit {
 
   public form = this.fb.group({
     topic: ['', [Validators.required]],
-    title: ['', [Validators.required, Validators.minLength(3)]],
-    content: ['', [Validators.required, Validators.minLength(3)]],
+    title: [
+      '',
+      [Validators.required, Validators.minLength(3), Validators.maxLength(60)],
+    ],
+    content: [
+      '',
+      [Validators.required, Validators.minLength(3), Validators.maxLength(500)],
+    ],
   });
 
   constructor(

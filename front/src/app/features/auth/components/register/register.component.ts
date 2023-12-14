@@ -17,9 +17,18 @@ export class RegisterComponent {
   public onError = false;
 
   public form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    name: ['', [Validators.required, Validators.minLength(3)]],
-    password: ['', [Validators.required, Validators.minLength(8)]],
+    email: [
+      '',
+      [Validators.required, Validators.email, Validators.maxLength(63)],
+    ],
+    name: [
+      '',
+      [Validators.required, Validators.minLength(3), Validators.maxLength(30)],
+    ],
+    password: [
+      '',
+      [Validators.required, Validators.minLength(8), Validators.maxLength(60)],
+    ],
   });
 
   constructor(

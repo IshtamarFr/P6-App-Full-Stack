@@ -25,6 +25,8 @@
             [type]="hide ? 'password' : 'text'"
             placeholder="Mot de passe"
             formControlName="password"
+            NgModel
+            pattern="(^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,60}$)|null"
           />
           <button
             mat-icon-button
@@ -45,7 +47,9 @@
       >
         Sauvegarder
       </button>
-      <span *ngIf="onError" class="error">Une erreur s'est produite</span>
+      <span *ngIf="onError" class="error"
+        >Cette adresse email est invalide</span
+      >
     </form>
     <div (click)="logout()" class="link">Se déconnecter</div>
   </mat-card>

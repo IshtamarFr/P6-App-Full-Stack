@@ -17,8 +17,14 @@ export class LoginComponent {
   public onError = false;
 
   public form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]],
+    email: [
+      '',
+      [Validators.required, Validators.email, Validators.maxLength(63)],
+    ],
+    password: [
+      '',
+      [Validators.required, Validators.minLength(8), Validators.maxLength(60)],
+    ],
   });
 
   constructor(

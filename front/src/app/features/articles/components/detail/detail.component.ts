@@ -59,7 +59,14 @@ export class DetailComponent implements OnInit {
 
   private initMessageForm() {
     this.messageForm = this.fb.group({
-      message: ['', [Validators.required, Validators.minLength(10)]],
+      message: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(500),
+        ],
+      ],
     });
   }
 }
