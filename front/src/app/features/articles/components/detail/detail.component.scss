@@ -1,11 +1,16 @@
 .detail {
   margin: 20px;
   width: 90%;
+  height: 95%;
 }
 
 .owner {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+#all_comments {
+  overflow: auto;
 }
 
 .comments {

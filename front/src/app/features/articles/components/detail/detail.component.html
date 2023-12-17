@@ -1,4 +1,4 @@
-<div class="detail">
+<div class="detail" fxLayout="column" fxLayoutAlign="space-between">
   <mat-card *ngIf="article">
     <mat-card-title>
       <div fxLayout="row" fxLayoutAlign="space-between center">
@@ -31,11 +31,13 @@
     </mat-card-content>
   </mat-card>
 
-  <hr />
-  <h1>Commentaires</h1>
-  <div *ngFor="let comment of comments" fxLayout="row" class="comments">
-    {{ comment.author_name }}
-    <mat-card class="comment">{{ comment.content }}</mat-card>
+  <div id="all_comments">
+    <hr />
+    <h1>Commentaires</h1>
+    <div *ngFor="let comment of comments" fxLayout="row" class="comments">
+      {{ comment.author_name }}
+      <mat-card class="comment">{{ comment.content }}</mat-card>
+    </div>
   </div>
 
   <mat-card class="mt2">
