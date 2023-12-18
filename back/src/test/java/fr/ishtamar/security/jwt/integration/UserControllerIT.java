@@ -2,7 +2,7 @@ package fr.ishtamar.security.jwt.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.ishtamar.security.jwt.dto.AuthRequest;
-import fr.ishtamar.security.jwt.dto.ModifyUserRequest;
+import fr.ishtamar.security.jwt.payload.ModifyUserRequest;
 import fr.ishtamar.security.jwt.entity.UserInfo;
 import fr.ishtamar.security.jwt.service.JwtService;
 import org.hamcrest.CoreMatchers;

@@ -1,7 +1,7 @@
 package fr.ishtamar.security.jwt.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.ishtamar.security.jwt.dto.ModifyUserRequest;
+import fr.ishtamar.security.jwt.payload.ModifyUserRequest;
 import fr.ishtamar.security.jwt.entity.UserInfo;
 import fr.ishtamar.security.jwt.repository.UserInfoRepository;
 import fr.ishtamar.security.jwt.service.JwtService;

@@ -35,7 +35,7 @@ public class UserInfo {
     @Size(max=60)
     private String password;
 
-    private String roles="ROLE_USER";
+    private String roles;
 
     @ManyToMany
     @JoinTable(

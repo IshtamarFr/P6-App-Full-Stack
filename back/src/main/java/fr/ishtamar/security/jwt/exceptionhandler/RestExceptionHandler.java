@@ -1,5 +1,6 @@
 package fr.ishtamar.security.jwt.exceptionhandler;
 
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
@@ -48,6 +49,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         //code 400
         ApiError apiError = new ApiError(BAD_REQUEST);
         apiError.setMessage("This email is not valid");
+        return buildResponseEntity(apiError);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    protected ResponseEntity<Object> handleConstraintViolation() {
+        //code 400
+        ApiError apiError = new ApiError(BAD_REQUEST);
+        apiError.setMessage("This request threw a validation error");
         return buildResponseEntity(apiError);
     }
 }

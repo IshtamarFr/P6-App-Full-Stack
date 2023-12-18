@@ -8,7 +8,6 @@ import fr.ishtamar.security.jwt.repository.UserInfoRepository;
 import fr.ishtamar.security.jwt.service.JwtService;
 import fr.ishtamar.security.jwt.service.UserInfoDetails;
 import fr.ishtamar.security.jwt.service.UserInfoService;
-import fr.ishtamar.security.jwt.util.PasswordValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,8 +22,6 @@ public class UserInfoServiceImpl implements UserInfoService {
     private UserInfoRepository repository;
     @Autowired
     private PasswordEncoder encoder;
-    @Autowired
-    private PasswordValidator passwordValidator;
     @Autowired
     private JwtService jwtService;
 
@@ -52,13 +49,9 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         //Otherwise it keeps on
         if (treatPassword) {
-            if (passwordValidator.isValid(userInfo.getPassword())) {
-                userInfo.setPassword(encoder.encode(userInfo.getPassword()));
-                repository.save(userInfo);
-                return "User Modified Successfully";
-            } else {
-                throw new InvalidPasswordException();
-            }
+            userInfo.setPassword(encoder.encode(userInfo.getPassword()));
+            repository.save(userInfo);
+            return "User Modified Successfully";
         } else {
             repository.save(userInfo);
             return "User Modified Successfully";
@@ -75,13 +68,9 @@ public class UserInfoServiceImpl implements UserInfoService {
         }
 
         //Otherwise it keeps on
-        if (passwordValidator.isValid(userInfo.getPassword())) {
-            userInfo.setPassword(encoder.encode(userInfo.getPassword()));
-            repository.save(userInfo);
-            return "User Added Successfully";
-        } else {
-            throw new InvalidPasswordException();
-        }
+        userInfo.setPassword(encoder.encode(userInfo.getPassword()));
+        repository.save(userInfo);
+        return "User Added Successfully";
     }
 
     @Override

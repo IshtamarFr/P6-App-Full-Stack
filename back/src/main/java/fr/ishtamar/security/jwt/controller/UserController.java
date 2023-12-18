@@ -2,7 +2,8 @@ package fr.ishtamar.security.jwt.controller;
 
 import fr.ishtamar.security.jwt.dto.ArticleDto;
 import fr.ishtamar.security.jwt.dto.AuthRequest;
-import fr.ishtamar.security.jwt.dto.ModifyUserRequest;
+import fr.ishtamar.security.jwt.payload.CreateUserRequest;
+import fr.ishtamar.security.jwt.payload.ModifyUserRequest;
 import fr.ishtamar.security.jwt.dto.UserDto;
 import fr.ishtamar.security.jwt.entity.Topic;
 import fr.ishtamar.security.jwt.entity.UserInfo;
@@ -18,8 +19,8 @@ import fr.ishtamar.security.jwt.service.impl.ArticleServiceImpl;
 import fr.ishtamar.security.jwt.service.impl.UserInfoServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,7 +33,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -63,7 +63,14 @@ public class UserController {
             @ApiResponse(responseCode="400", description = "User already exists")
     })
     @PostMapping("/auth/register")
-    public Map<String,String> addNewUser(@RequestBody UserInfo userInfo) {
+    public Map<String,String> addNewUser(@Valid @RequestBody CreateUserRequest request) throws ConstraintViolationException {
+        UserInfo userInfo=UserInfo.builder()
+                .name(request.getName())
+                .email(request.getEmail())
+                .password(request.getPassword())
+                .roles("ROLE_USER")
+                .build();
+
         service.createUser(userInfo);
         Map<String,String>map=new HashMap<>();
         map.put("token",jwtService.generateToken(userInfo.getEmail()));
@@ -105,8 +112,8 @@ public class UserController {
     @Secured("ROLE_USER")
     public Map<String,String> userModifyProfile(
             @RequestHeader(value="Authorization",required=false) String jwt,
-            @RequestBody ModifyUserRequest request
-    ) throws EntityNotFoundException, EmailAlreadyUsedException, InvalidPasswordException {
+            @Valid @RequestBody ModifyUserRequest request
+    ) throws EntityNotFoundException, EmailAlreadyUsedException, ConstraintViolationException {
         //get data from user
         String username=jwtService.extractUsername(jwt.substring(7));
         UserInfo candidate=service.getUserByUsername(username);
