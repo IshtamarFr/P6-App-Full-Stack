@@ -33,7 +33,10 @@ export class MeComponent implements OnInit {
   public form: FormGroup = this.fb.group({
     email: ['', [Validators.email, Validators.maxLength(63)]],
     name: ['', [Validators.minLength(3), Validators.maxLength(30)]],
-    password: ['', [Validators.minLength(8), Validators.maxLength(60)]],
+    password: [
+      '',
+      [Validators.pattern('(^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,60}$)|null')],
+    ],
   });
 
   constructor(
