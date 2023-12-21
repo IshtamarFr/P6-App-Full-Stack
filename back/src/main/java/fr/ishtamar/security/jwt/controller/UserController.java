@@ -1,7 +1,7 @@
 package fr.ishtamar.security.jwt.controller;
 
 import fr.ishtamar.security.jwt.dto.ArticleDto;
-import fr.ishtamar.security.jwt.dto.AuthRequest;
+import fr.ishtamar.security.jwt.payload.AuthRequest;
 import fr.ishtamar.security.jwt.payload.CreateUserRequest;
 import fr.ishtamar.security.jwt.payload.ModifyUserRequest;
 import fr.ishtamar.security.jwt.dto.UserDto;
@@ -9,7 +9,6 @@ import fr.ishtamar.security.jwt.entity.Topic;
 import fr.ishtamar.security.jwt.entity.UserInfo;
 import fr.ishtamar.security.jwt.exceptionhandler.EmailAlreadyUsedException;
 import fr.ishtamar.security.jwt.exceptionhandler.EntityNotFoundException;
-import fr.ishtamar.security.jwt.exceptionhandler.InvalidPasswordException;
 import fr.ishtamar.security.jwt.mapper.ArticleMapper;
 import fr.ishtamar.security.jwt.mapper.UserMapper;
 import fr.ishtamar.security.jwt.service.ArticleService;

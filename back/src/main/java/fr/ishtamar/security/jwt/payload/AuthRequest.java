@@ -1,4 +1,4 @@
-package fr.ishtamar.security.jwt.dto;
+package fr.ishtamar.security.jwt.payload;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
