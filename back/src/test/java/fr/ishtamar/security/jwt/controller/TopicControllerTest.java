@@ -116,7 +116,7 @@ public class TopicControllerTest {
         UserInfo mockUser=UserInfo.builder()
                 .name("Ishta")
                 .email("test@test.com")
-                .password("123456")
+                .password("Aa123456")
                 .build();
 
         ArticleDto mockArticle=ArticleDto.builder()
