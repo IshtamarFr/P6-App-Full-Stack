@@ -49,7 +49,7 @@ public class UserController {
     @Autowired
     private ArticleMapper articleMapper;
     @Autowired
-    private ArticleService articleService=new ArticleServiceImpl();
+    private final ArticleService articleService=new ArticleServiceImpl();
 
     @Operation(hidden=true)
     @GetMapping("/auth/welcome")
