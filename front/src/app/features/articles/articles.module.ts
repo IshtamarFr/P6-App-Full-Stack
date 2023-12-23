@@ -9,7 +9,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { TopicComponent } from './components/topic/topic.component';
 import { MatCardModule } from '@angular/material/card';
@@ -39,7 +38,6 @@ const materialModules = [
     MaterialFileInputModule,
     ReactiveFormsModule,
     ArticleRoutingModule,
-    SharedModule,
     ...materialModules,
   ],
   providers: [
