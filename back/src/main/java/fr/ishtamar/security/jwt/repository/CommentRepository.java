@@ -7,6 +7,5 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    @Query(value = "SELECT * FROM Comment WHERE article_id = ?1 ORDER BY createdAt DESC", nativeQuery = true)
-    List<Comment> findAllWithArticleId(Long id);
+    List<Comment> findByArticleIdOrderByCreatedAtDesc(Long id);
 }

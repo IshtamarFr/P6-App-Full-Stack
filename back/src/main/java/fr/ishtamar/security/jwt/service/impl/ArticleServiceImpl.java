@@ -22,12 +22,12 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> getAllArticlesWithTopicId(final Long id) {
-        return repository.findAllWithTopicId(id);
+        return repository.findByTopicIdOrderByCreatedAtDesc(id);
     }
 
     @Override
     public List<Article> getAllArticlesInTopicIds(final List<Long> ids) {
-        return repository.findAllInTopicIds(ids);
+        return repository.findByTopicIdInOrderByCreatedAtDesc(ids);
     }
 
     @Override

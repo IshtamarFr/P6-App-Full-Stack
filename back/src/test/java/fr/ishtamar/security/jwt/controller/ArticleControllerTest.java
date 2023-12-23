@@ -86,7 +86,7 @@ public class ArticleControllerTest {
     @Test
     @WithMockUser(roles="USER")
     public void testGetAllCommentsForArticle42() throws Exception {
-        when(commentRepository.findAllWithArticleId(42L)).thenReturn(mockComments);
+        when(commentRepository.findByArticleIdOrderByCreatedAtDesc(42L)).thenReturn(mockComments);
 
         mockMvc.perform(get("/article/42/comments"))
                 .andExpect(status().isOk())
