@@ -48,14 +48,9 @@ public class UserInfoServiceImpl implements UserInfoService {
         }
 
         //Otherwise it keeps on
-        if (treatPassword) {
-            userInfo.setPassword(encoder.encode(userInfo.getPassword()));
-            repository.save(userInfo);
-            return "User Modified Successfully";
-        } else {
-            repository.save(userInfo);
-            return "User Modified Successfully";
-        }
+        if (treatPassword) userInfo.setPassword(encoder.encode(userInfo.getPassword()));
+        repository.save(userInfo);
+        return "User Modified Successfully";
     }
 
     @Override
