@@ -17,7 +17,7 @@ public interface CommentService {
     /**
      * Tries to create and save a comment
      * @param comment Comment to be created
-     * @throws EntityNotFoundException
+     * @throws EntityNotFoundException article Id not found
      */
     void saveComment(Comment comment) throws EntityNotFoundException;
 }

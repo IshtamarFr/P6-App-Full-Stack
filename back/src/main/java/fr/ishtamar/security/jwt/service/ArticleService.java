@@ -32,7 +32,7 @@ public interface ArticleService {
     /**
      * Saves article for create or modify
      * @param article Article to be saved
-     * @throws EntityNotFoundException
+     * @throws EntityNotFoundException Article Id not found
      */
     void saveArticle(Article article) throws EntityNotFoundException;
 }

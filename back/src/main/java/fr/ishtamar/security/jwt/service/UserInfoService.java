@@ -23,8 +23,8 @@ public interface UserInfoService extends UserDetailsService {
      * @param userInfo User data to be modified
      * @param treatPassword Boolean to determine whether given password must be encrypted or not
      * @return message: all is OK
-     * @throws EmailAlreadyUsedException
-     * @throws InvalidPasswordException
+     * @throws EmailAlreadyUsedException this Email is already registered
+     * @throws InvalidPasswordException this Password doesn't verify RegEx criteria
      */
     String modifyUser(UserInfo userInfo,boolean treatPassword) throws EmailAlreadyUsedException, InvalidPasswordException;
 
@@ -32,8 +32,8 @@ public interface UserInfoService extends UserDetailsService {
      * Tries to create a new user if password is OK and email is not used by someone else
      * @param userInfo User data to be created
      * @return message: all is OK
-     * @throws EmailAlreadyUsedException
-     * @throws InvalidPasswordException
+     * @throws EmailAlreadyUsedException this Email is already registered
+     * @throws InvalidPasswordException this Password doesn't verify RegEx criteria
      */
     String createUser(UserInfo userInfo) throws EmailAlreadyUsedException, InvalidPasswordException;
 

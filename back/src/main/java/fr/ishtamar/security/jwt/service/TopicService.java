@@ -10,12 +10,12 @@ public interface TopicService {
      * Tries to get topic by its id
      * @param id Long id for topic
      * @return Given topic
-     * @throws EntityNotFoundException
+     * @throws EntityNotFoundException topic Id not found
      */
     Topic getTopicById(final Long id) throws EntityNotFoundException;
 
     /**
-     * Fetchs all existing topics
+     * Fetches all existing topics
      * @return List of all Topics
      */
     List<Topic> getAllTopics();

@@ -65,7 +65,7 @@ public class TopicController {
             //formatter:off
             @PathVariable("id") final long id,
             @RequestHeader(value="Authorization",required=false) String jwt,
-            @RequestBody @NotBlank @Size(max=500) ArticleDto articleDto
+            @RequestBody ArticleDto articleDto
             //formatter:on
     ) throws EntityNotFoundException {
         String username=jwtService.extractUsername(jwt.substring(7));
