@@ -5,22 +5,35 @@ import { User } from 'src/app/interfaces/user.interface';
 import { SessionService } from 'src/app/services/session.service';
 import { Topic } from '../../features/articles/interfaces/topic.interface';
 import { TopicService } from '../../features/articles/services/topic.service';
-import {
-  ValidatorFn,
-  AbstractControl,
-  ValidationErrors,
-  Validators,
-  FormBuilder,
-  FormGroup,
-} from '@angular/forms';
+import { ValidatorFn, AbstractControl, ValidationErrors, Validators, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthSuccess } from 'src/app/features/auth/interfaces/authSuccess.interface';
 import { RegisterRequest } from 'src/app/features/auth/interfaces/registerRequest.interface';
 import { take } from 'rxjs';
+import { NgIf, NgFor } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { FlexModule } from '@angular/flex-layout/flex';
 
 @Component({
-  selector: 'app-me',
-  templateUrl: './me.component.html',
-  styleUrls: ['./me.component.scss'],
+    selector: 'app-me',
+    templateUrl: './me.component.html',
+    styleUrls: ['./me.component.scss'],
+    standalone: true,
+    imports: [
+        FlexModule,
+        MatCardModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        NgIf,
+        NgFor,
+    ],
 })
 export class MeComponent implements OnInit {
   public user: User | undefined;

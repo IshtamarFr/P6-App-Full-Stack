@@ -1,16 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { Article } from 'src/app/features/articles/interfaces/article.interface';
 import { MessageDto } from '../../interfaces/message-dto';
 import { ArticlesService } from '../../services/articles.service';
 import { MessagesService } from '../../services/messages.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { NgIf, NgFor, DatePipe } from '@angular/common';
+import { FlexModule } from '@angular/flex-layout/flex';
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss'],
+    selector: 'app-detail',
+    templateUrl: './detail.component.html',
+    styleUrls: ['./detail.component.scss'],
+    standalone: true,
+    imports: [
+        FlexModule,
+        NgIf,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        NgFor,
+        FormsModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        DatePipe,
+    ],
 })
 export class DetailComponent implements OnInit {
   public messageForm!: FormGroup;

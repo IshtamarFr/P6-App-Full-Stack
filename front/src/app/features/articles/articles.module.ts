@@ -30,21 +30,21 @@ const materialModules = [
 ];
 
 @NgModule({
-  declarations: [ListComponent, FormComponent, DetailComponent, TopicComponent],
-  imports: [
-    CommonModule,
-    FlexLayoutModule,
-    FormsModule,
-    MaterialFileInputModule,
-    ReactiveFormsModule,
-    ArticleRoutingModule,
-    ...materialModules,
-  ],
-  providers: [
-    {
-      provide: LOCALE_ID,
-      useValue: 'fr-FR',
-    },
-  ],
+    imports: [
+        CommonModule,
+        FlexLayoutModule,
+        FormsModule,
+        MaterialFileInputModule,
+        ReactiveFormsModule,
+        ArticleRoutingModule,
+        ...materialModules,
+        ListComponent, FormComponent, DetailComponent, TopicComponent,
+    ],
+    providers: [
+        {
+            provide: LOCALE_ID,
+            useValue: 'fr-FR',
+        },
+    ],
 })
 export class ArticlesModule {}

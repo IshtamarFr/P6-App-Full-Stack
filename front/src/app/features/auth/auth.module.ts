@@ -19,14 +19,14 @@ const materialModules = [
 ];
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, HomeComponent],
-  imports: [
-    AuthRoutingModule,
-    CommonModule,
-    FlexLayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ...materialModules,
-  ],
+    imports: [
+        AuthRoutingModule,
+        CommonModule,
+        FlexLayoutModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ...materialModules,
+        RegisterComponent, LoginComponent, HomeComponent,
+    ],
 })
 export class AuthModule {}

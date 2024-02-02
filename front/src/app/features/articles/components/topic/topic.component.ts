@@ -5,11 +5,24 @@ import { User } from 'src/app/interfaces/user.interface';
 import { Topic } from '../../interfaces/topic.interface';
 import { UserService } from 'src/app/services/user.service';
 import { take } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { NgFor, NgIf, AsyncPipe } from '@angular/common';
+import { FlexModule } from '@angular/flex-layout/flex';
 
 @Component({
-  selector: 'app-topic',
-  templateUrl: './topic.component.html',
-  styleUrls: ['./topic.component.scss'],
+    selector: 'app-topic',
+    templateUrl: './topic.component.html',
+    styleUrls: ['./topic.component.scss'],
+    standalone: true,
+    imports: [
+        FlexModule,
+        NgFor,
+        MatCardModule,
+        NgIf,
+        MatButtonModule,
+        AsyncPipe,
+    ],
 })
 export class TopicComponent implements OnInit {
   public topics$ = this.topicService.all();
